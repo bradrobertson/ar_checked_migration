@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Brad Robertson"]
   spec.email         = ["bradleyrobertson@gmail.com"]
   spec.description   = %q{Determine whether or not ActiveRecord migrations are
-                         considered safe to determine if an app
+                         considered safe to know if an app
                          needs to go into maintenance on deploy}
   spec.summary       = %q{Check 'safe' and 'unsafe' migrations}
   spec.homepage      = ""
