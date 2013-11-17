@@ -25,6 +25,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rails"
   spec.add_development_dependency "minitest"
   spec.add_development_dependency "minitest-spec-context"
+  spec.add_development_dependency "minitest-reporters", '~> 1.0.0.beta3'
   spec.add_development_dependency "guard-minitest"
   spec.add_development_dependency "appraisal"
   spec.add_development_dependency "sqlite3"
