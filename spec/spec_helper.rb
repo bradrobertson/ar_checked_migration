@@ -10,3 +10,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'active_record'
 
 ActiveRecord::Base.establish_connection adapter: "sqlite3", database: ":memory:"
+
+SPEC_ROOT = File.dirname(File.expand_path(__FILE__))
+
+Dir["#{SPEC_ROOT}/support/**/*.rb"].each{|f| require f }

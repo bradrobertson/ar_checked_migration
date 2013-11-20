@@ -1,0 +1,2 @@
+class Fourth
+end
