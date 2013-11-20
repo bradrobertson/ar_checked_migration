@@ -14,7 +14,7 @@ module ArCheckedMigration
   private
 
     def files
-      @files ||= ActiveRecord::Migrator.migrations(migrations_paths).map(&:version)
+      @files ||= Migrations.files(migrations_paths)
     end
 
     def all_down
@@ -36,6 +36,10 @@ module ArCheckedMigration
         SELECT version FROM #{table}
       SQL
       )
+    end
+
+    def self.files(paths)
+      ActiveRecord::Migrator.migrations(paths).map(&:version)
     end
   end
 end
