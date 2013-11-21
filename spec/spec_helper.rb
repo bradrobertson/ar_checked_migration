@@ -1,6 +1,7 @@
 require 'minitest/autorun'
 require 'minitest-spec-context'
-require "minitest/reporters"
+require 'minitest/reporters'
+require 'rr'
 
 Minitest::Reporters.use! Minitest::Reporters::ProgressReporter.new
 
