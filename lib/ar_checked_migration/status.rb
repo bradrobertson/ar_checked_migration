@@ -11,6 +11,10 @@ module ArCheckedMigration
       end
     end
 
+    def down
+      all.select{|migration,status| status == :down }.keys
+    end
+
   private
 
     def files
