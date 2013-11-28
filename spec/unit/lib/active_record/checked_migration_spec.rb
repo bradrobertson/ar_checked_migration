@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'active_record/checked_migration'
 
 describe ActiveRecord::CheckedMigration do
   SomeMigration = Class.new(ActiveRecord::CheckedMigration)

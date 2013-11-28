@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'ar_checked_migration/status'
 
 describe ArCheckedMigration::Status do
   let(:migrations_table)     { Migrations.table }
