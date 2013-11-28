@@ -1,2 +1,2 @@
-class First
+class First < ActiveRecord::Migration
 end
