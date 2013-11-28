@@ -9,6 +9,10 @@ module Migrations
     all.map(&:version)
   end
 
+  def table
+    'schema_migrations'
+  end
+
 private
 
   def timestamp_regex

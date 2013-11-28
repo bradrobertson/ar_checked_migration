@@ -2,7 +2,7 @@ require 'spec_helper'
 require 'ar_checked_migration/status'
 
 describe ArCheckedMigration::Status do
-  let(:migrations_table)     { 'schema_migrations' }
+  let(:migrations_table)     { Migrations.table }
   let(:migrations)           { Migrations.all }
   let(:migrations_timestamps){ Migrations.timestamps }
 
