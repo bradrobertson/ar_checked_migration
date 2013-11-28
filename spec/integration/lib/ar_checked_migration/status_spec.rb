@@ -41,8 +41,4 @@ describe ArCheckedMigration::Status do
       end
     end
   end
-
-  describe "down" do
-
-  end
 end
