@@ -4,13 +4,11 @@ module ArCheckedMigration
     def all
       return all_down unless Migrations.table_exists?(migrations_table)
 
-      versions.each_with_object({}) do |m, h|
-        h[m] = migrated.include?(m) ? :up : :down
-      end
+      {down: down_migrations, up: up_migrations}
     end
 
     def down
-      all.select{|migration,status| status == :down }.keys
+      all[:down]
     end
 
   private
@@ -20,11 +18,19 @@ module ArCheckedMigration
     end
 
     def all_down
-      versions.each_with_object({}){|m,h| h[m]=:down}
+      {down: migrations, up: []}
     end
 
-    def migrated
-      @migrated ||= Migrations.up(migrations_table).map(&:to_i)
+    def up_migrations
+      migrations.select{|m| migrated_versions.include?(m.version) }
+    end
+
+    def down_migrations
+      migrations - up_migrations
+    end
+
+    def migrated_versions
+      @migrated_versions ||= Migrations.up(migrations_table).map(&:to_i)
     end
   end
 

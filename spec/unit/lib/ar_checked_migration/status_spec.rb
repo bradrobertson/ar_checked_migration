@@ -12,11 +12,11 @@ describe ArCheckedMigration::Status do
   describe "#down" do
     before do
       stub(ArCheckedMigration::Migrations).table_exists?{ true }
-      stub(ArCheckedMigration::Migrations).up{ up }
+      stub(ArCheckedMigration::Migrations).up{ up.map(&:version) }
     end
 
     it "fetches all migrations that haven't been run" do
-      status.down.must_equal migrations_timestamps - up
+      status.down.must_equal migrations - up
     end
   end
 end
