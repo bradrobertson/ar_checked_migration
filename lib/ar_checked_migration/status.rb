@@ -4,7 +4,7 @@ module ArCheckedMigration
     def all
       return all_down unless Migrations.table_exists?(migrations_table)
 
-      {down: down_migrations, up: up_migrations}
+      @all ||= {down: down_migrations, up: up_migrations}
     end
 
     def down
