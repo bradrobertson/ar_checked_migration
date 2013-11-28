@@ -1,10 +1,12 @@
 module Migrations
   extend self
 
-  # A direct listing of all the migration file timestamps
   def all
-    files = Dir["#{SPEC_ROOT}/support/migrations/*.rb"]
-    files.map { |file| file.match(timestamp_regex)[1].to_i }
+    ActiveRecord::Migrator.migrations(["#{SPEC_ROOT}/support/migrations"])
+  end
+
+  def timestamps
+    all.map(&:version)
   end
 
 private
