@@ -4,7 +4,6 @@ describe ArCheckedMigration::Checker do
 
   let(:table)           { Migrations.table }
   let(:migrated)        { [] }
-  let(:migrated_values) { migrated.map{|m| "(#{m})"} }
 
   let(:status){ ArCheckedMigration::Status.new(Migrations.all, Migrations.table) }
   let(:checker){ ArCheckedMigration::Checker.new(status) }
@@ -12,7 +11,9 @@ describe ArCheckedMigration::Checker do
   before do
     ActiveRecord::Base.connection.create_table(table, id: false){|t| t.string('version')}
     if migrated.length > 0
-      ActiveRecord::Base.connection.execute("INSERT INTO #{table} VALUES #{migrated_values.join(',')}")
+      migrated.each do |v|
+        ActiveRecord::Base.connection.execute("INSERT INTO #{table} VALUES (#{v});")
+      end
     end
   end
 

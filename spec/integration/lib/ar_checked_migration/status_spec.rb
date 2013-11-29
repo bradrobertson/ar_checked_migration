@@ -25,7 +25,11 @@ describe ArCheckedMigration::Status do
       context "with some migrations up" do
         let(:up_count){ 2 }
         let(:migrated){ migrations_timestamps.first(up_count).map{|f| "(#{f})"} }
-        before{ ActiveRecord::Base.connection.execute("INSERT INTO #{migrations_table} VALUES #{migrated.join(',')}")}
+        before do
+          migrated.each do |v|
+            ActiveRecord::Base.connection.execute("INSERT INTO #{migrations_table} VALUES (#{v})")
+          end
+        end
 
         it "has some up and some down" do
           status.all.must_equal(
