@@ -12,5 +12,9 @@ module ArCheckedMigration
         ArCheckedMigration::Runner.table_name = table_name
       end
     end
+
+    config.app_generators do |g|
+      g.templates.unshift File.expand_path('../templates', __FILE__)
+    end
   end
 end
