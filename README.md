@@ -1,5 +1,7 @@
 # ArCheckedMigration
 
+## This repo is not maintained.
+
 [![Code Climate](https://codeclimate.com/repos/5297ae7f89af7e25a70ee800/badges/af6c4669ad4541ad1066/gpa.png)](https://codeclimate.com/repos/5297ae7f89af7e25a70ee800/feed)
 [![Build Status](https://travis-ci.org/bradrobertson/ar_checked_migration.png?branch=master)](https://travis-ci.org/bradrobertson/ar_checked_migration)
 
